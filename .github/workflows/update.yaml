@@ -22,7 +22,7 @@ jobs:
       run: npm i
 
     - name: Run Node.js script
-      run: node your-script.js
+      run: node .
 
     - name: Commit and push JSON files
       run: |
