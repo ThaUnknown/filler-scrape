@@ -1,0 +1,17 @@
+{
+  "name": "filler-scrape",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ThaUnknown",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "bottleneck": "^2.19.5",
+    "cheerio": "^1.0.0",
+    "js-levenshtein": "^1.1.6"
+  }
+}

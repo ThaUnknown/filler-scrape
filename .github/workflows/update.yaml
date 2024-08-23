@@ -1,0 +1,33 @@
+name: Monthly Script Run and JSON Upload
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Run at 00:00 on the first day of every month
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run-script-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Node.js script
+      run: node your-script.js
+
+    - name: Commit and push JSON files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add filler-readable.json filler.json
+        git commit -m "Monthly update of JSON files" || exit 0
+        git push
